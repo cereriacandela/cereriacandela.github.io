@@ -364,5 +364,61 @@
             });
         });
     </script>
+    <!-- AQUI INICIA LA VENTANA POP UP DE NOVEDADES -->
+    <!-- Fondo oscuro y contenedor del modal -->
+<div id="novedadesModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center z-50">
+  <!-- Contenido del modal -->
+  <div class="relative bg-white rounded-lg shadow-xl mx-4 md:mx-auto max-w-md md:max-w-lg w-full p-6">
+    
+    <!-- Título y botón de cerrar -->
+    <div class="flex justify-between items-start pb-4 border-b">
+      <h3 class="text-xl font-semibold text-gray-900">¡Novedades!</h3>
+      <button id="cerrarModal" class="text-gray-400 hover:text-gray-600 text-2xl font-bold leading-none">&times;</button>
+    </div>
+
+    <!-- Contenido informativo -->
+    <div class="mt-4">
+    <p class="text-gray-700 mb-4">
+      <span class="font-semibold text-amber-700">Noticias importantes de Cerería Candela:</span>
+      <br>
+      <span class="block mt-2">
+        Visítanos en la feria del <span class="font-medium">Gobierno Provincial de Pichincha</span> a realizarse en la parroquia de <span class="font-medium">CHECA "Princesa del Ande"</span> el <span class="font-bold text-blue-700">Sábado 11 de Octubre</span> en el <span class="font-medium">parque Ecológico Dr. Nelson Montenegro</span>.
+      </span>
+      <br>
+      <span class="block mt-2">¡Mantente al tanto de nuestras actualizaciones!</span>
+    </p>
+    </div>
+
+    <!-- Botón de acción (opcional) -->
+    <div class="mt-6 flex justify-end">
+      <button id="aceptarModal" class="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+        Entendido
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Obtener elementos del DOM
+  const modal = document.getElementById('novedadesModal');
+  const cerrarBtn = document.getElementById('cerrarModal');
+  const aceptarBtn = document.getElementById('aceptarModal');
+
+  // Función para cerrar el modal
+  function cerrarModal() {
+    modal.style.display = 'none';
+  }
+
+  // Asignar eventos a los botones
+  cerrarBtn.addEventListener('click', cerrarModal);
+  aceptarBtn.addEventListener('click', cerrarModal);
+
+  // Cerrar al hacer clic fuera del contenido (opcional)
+  window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      cerrarModal();
+    }
+  });
+</script>
 </body>
 </html>
